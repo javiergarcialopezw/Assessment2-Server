@@ -49,14 +49,14 @@ export class GitHelper {
       `git clone ${cloneUrl} ${repoFolder}`,
       { silent: true },
       async (_code, _output) => {
-        // Cd into cloned repo and run install
+        console.log("Cd into cloned repo and run install")
         shellCd(repoFolder);
-        shellExec("npm install", { silent: true });
+        shellExec("npm install", { silent: false });
 
-        // Run unit jest test
+        console.log("Run unit jest test")
         shellExec("npm run test", { silent: true });
 
-        // Clean up clone folder
+        console.log("Clean up clone folder")
         shellCd("..");
         shellRm("-rf", repoFolder);
 
