@@ -51,11 +51,11 @@ export class GitHelper {
       async (_code, _output) => {
         console.log("Cd into cloned repo and run install")
         shellCd(repoFolder);
-        shellExec("npm install", { silent: false });
+        shellExec("npm install", { silent: true });
         console.log("npm install done")
 
         console.log("Run unit jest test")
-        shellExec("npm run test", { silent: false });
+        shellExec("npm run test", { silent: true });
         console.log("npm run test done")
 
         console.log("Clean up clone folder")
