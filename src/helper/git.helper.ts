@@ -52,19 +52,18 @@ export class GitHelper {
         console.log("Cd into cloned repo and run install")
         shellCd(repoFolder);
         shellExec("npm install", { silent: false });
+        console.log("npm install done")
 
         console.log("Run unit jest test")
-        shellExec("npm run test", { silent: true });
+        shellExec("npm run test", { silent: false });
+        console.log("npm run test done")
 
         console.log("Clean up clone folder")
         shellCd("..");
         shellRm("-rf", repoFolder);
-
         console.log("Done with the clone repo process!!, now saving to database...")
 
-        // Save with a callback
         if (inputs.save_callback) await inputs.save_callback();
-
         console.log("Done with save!!, have a nice day!")
       },
     );
