@@ -44,8 +44,8 @@ class GitHandler {
       await this.testHistoryCrud.insertData({
         repo_name: inputs.repo_name,
         // TODO:
-        // If i can, please also setup the S3
-        // so we can save the shelljs output for each test run
+        // If i can, also setup the S3
+        // so i can save the shelljs output for each test run
         outfile_url: "should_be_s3_file_url",
       });
     };
