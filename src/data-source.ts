@@ -8,6 +8,7 @@ const AppDataSource = new DataSource({
   username: databaseConfig.DB_USERNAME,
   password: databaseConfig.DB_PWD,
   database: databaseConfig.DB_NAME,
+  connectTimeout: 10000,
   synchronize: false,
   logging: databaseConfig.DB_LOG, // Turn this on for debugging purpose, default false
   entities: [__dirname + "/models/**"],

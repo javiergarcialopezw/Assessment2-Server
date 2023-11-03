@@ -10,7 +10,8 @@ type NewTestHistoryInput = {
 export class TestHistroyCrud {
   private repo: Repository<TestHistory>;
   constructor() {
-    this.repo = AppDataSource.getRepository(TestHistory);
+    const manager = AppDataSource.createEntityManager()
+    this.repo = manager.getRepository(TestHistory);;
   }
 
   async insertData(inputs: NewTestHistoryInput) {
